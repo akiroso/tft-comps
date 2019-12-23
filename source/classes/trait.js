@@ -2,7 +2,7 @@ class Trait {
 
     constructor(name, sets) {
         this.name = name;
-        this.sets = sets;
+        this.sets = sets || [1];
     }
 }
 
