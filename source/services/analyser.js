@@ -12,7 +12,7 @@ const findComps = (champions, traits, levels, teamSize) => {
             const canChampionBeBought = currentLevel.probabilities[champion.cost] > 0;
             return isChampionOfTrait && canChampionBeBought;
         });
-        if (possibleChampions.length > 0) {
+        if (possibleChampions.length >= Math.min.apply(Math, trait.sets)) {
             possibleComps[trait.name] = possibleChampions.map((champion) => champion.name);
         }
     });
