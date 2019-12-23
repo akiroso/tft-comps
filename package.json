@@ -1,0 +1,11 @@
+{
+  "name": "tft-comps",
+  "version": "1.0.0",
+  "description": "Comps analyser for TFT",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Akira",
+  "license": "ISC"
+}
