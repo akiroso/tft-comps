@@ -1,6 +1,7 @@
 const fs = require('fs');
 const Champion = require('./source/classes/champion');
 const Trait = require('./source/classes/trait');
+const analyser = require('./source/services/analyser');
 
 const parseChampion = (item) => {
     const { champion, cost, traits } = item;
@@ -39,5 +40,10 @@ function readTraits() {
 const champions = readChampions();
 const traits = readTraits();
 
-console.log(champions);
-console.log(traits);
+// console.log(traits);
+for (let size = 1; size <= 12; size++) {
+    console.log(`possible comps for team size ${size}`);
+    const comps = analyser.findComps(champions, traits, size);
+    console.log(comps);
+    console.log('================================================');
+}
