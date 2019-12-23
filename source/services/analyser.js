@@ -1,18 +1,20 @@
 
-const findComps = (champions, traits, teamSize) => {
+const findComps = (champions, traits, levels, teamSize) => {
     const possibleComps = {};
     const possibleTraits = traits.filter((trait) => {
         const sets = trait.sets;
         return sets.find((element) => element <= teamSize);
     });
-    // console.log(possibleTraits.map((trait) => trait.name));
     possibleTraits.forEach(trait => {
         const possibleChampions = champions.filter((champion) => {
-            // console.debug(`Trying trait ${trait.name} for champion ${champion.name}`);
-            return champion.traits.includes(trait.name);
+            const isChampionOfTrait = champion.traits.includes(trait.name);
+            const currentLevel = levels[teamSize - 1];
+            const canChampionBeBought = currentLevel.probabilities[champion.cost] > 0;
+            return isChampionOfTrait && canChampionBeBought;
         });
-        // console.log(possibleChampions);
-        possibleComps[trait.name] = possibleChampions.map((champion) => champion.name);
+        if (possibleChampions.length > 0) {
+            possibleComps[trait.name] = possibleChampions.map((champion) => champion.name);
+        }
     });
     return possibleComps;
 }
