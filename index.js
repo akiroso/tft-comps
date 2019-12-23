@@ -3,26 +3,40 @@ const Champion = require('./classes/champion');
 const Trait = require('./classes/trait');
 
 const parseChampion = (item) => {
-    return new Champion(item.champion, item.cost, item.traits);
+    const { champion, cost, traits } = item;
+    return new Champion(champion, cost, traits);
 };
 
 const parseTrait = (item) => {
-    return new Trait(item.name, item.sets);
+    const { name, sets } = item;
+    return new Trait(name, sets);
 };
 
-try {
-    const champions = JSON.parse(fs.readFileSync('./resources/champions.json', 'utf8'));
-    const traits = JSON.parse(fs.readFileSync('./resources/traits.json', 'utf8'));
-    
-    champions.map((item) => {
-        const champ = parseChampion(item);
-        console.log(champ);
-    });
-    traits.map((item) => {
-        const trait = parseTrait(item);
-        console.log(trait);
-    });
-} catch (err) {
-    console.error(err)
+function readFile(filePath) {
+    try {
+        return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    }
+    catch (err) {
+        console.error(err);
+    }
+    return [];
 }
 
+function readChampions(champions) {
+    const championsData = readFile('./resources/champions.json');
+    return championsData.map((item) => {
+        return champ = parseChampion(item);
+    });
+}
+
+function readTraits() {
+    const traitsData = readFile('./resources/traits.json');
+    return traitsData.map((item) => {
+        return parseTrait(item);
+    });
+}
+
+const champions = readChampions();
+const traits = readTraits();
+
+console.log(`Champions: ${champions.length}; Traits: ${traits.length}`);
