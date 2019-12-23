@@ -1,6 +1,6 @@
 const fs = require('fs');
-const Champion = require('./classes/champion');
-const Trait = require('./classes/trait');
+const Champion = require('./source/classes/champion');
+const Trait = require('./source/classes/trait');
 
 const parseChampion = (item) => {
     const { champion, cost, traits } = item;
@@ -39,4 +39,5 @@ function readTraits() {
 const champions = readChampions();
 const traits = readTraits();
 
-console.log(`Champions: ${champions.length}; Traits: ${traits.length}`);
+console.log(champions);
+console.log(traits);
