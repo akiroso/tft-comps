@@ -14,7 +14,7 @@
     "description": "An Avatar's element is counted twice for trait bonuses."
   },
   {
-    "name": "Beserker",
+    "name": "Berserker",
     "innate": "At the start of combat, Berserkers leap to the nearest enemy.",
     "description": "Deploying multiple Berserkers grants their attacks a chance to deal damage in a cone behind the target. The chance increases with more Berserkers.",
     "sets": [3, 6]
@@ -45,7 +45,7 @@
     "sets": [2]
   },
   {
-    "name": "Eletric",
+    "name": "Electric",
     "description": "Deploying multiple Electric champions causes them to damage adjacent enemies whenever they critically strike or are critically struck.",
     "sets": [2, 3, 4]
   },
