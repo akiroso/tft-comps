@@ -4,8 +4,13 @@
   "description": "Comps analyser for TFT",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "author": "Akira",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
 }
